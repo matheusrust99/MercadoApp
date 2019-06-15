@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">                 
+
+    <h:form>
+        <p:toolbar>
+            <p:toolbarGroup>
+                <p:commandButton value="Adicionar" action="#{usuarioBean.adicionarUsuario()}" 
+                                 update="@form"/>
+            </p:toolbarGroup>
+        </p:toolbar>
+
+        <p:fieldset  legend="Cadastro">
+
+            <p:panelGrid columns="2">
+                <h:outputLabel value="ID"/>
+                <p:inputText value="#{usuarioBean.user.idUsuario}"/>
+
+                <h:outputLabel value="Telefone"/>
+                <p:inputMask mask="(99)9999-9999" value="#{usuarioBean.user.telefone}"/>
+
+                <h:outputLabel value="Email"/>
+                <p:inputText  value="#{usuarioBean.user.email}"/>
+
+                <h:outputLabel value="CPF"/>
+                <p:inputText value="#{usuarioBean.user.cpf}"/>
+
+                <h:outputLabel value="Data de Nascimento"/>
+                <p:inputText value="#{usuarioBean.user.dataNascimento}"/>
+
+
+            </p:panelGrid>
+            <p:dataTable value="#{usuarioBean.usuarios}" var="usario">
+                <p:column headerText="ID"/>
+                <h:outputText value="#{usario.idUsuario}"/>
+
+                <p:column headerText="Telefone"/>
+                <h:outputText value="#{usario.telefone}"/>
+
+                <p:column headerText="Email"/>
+                <h:outputText value="#{usario.email}"/>
+
+                <p:column headerText="CPF"/>
+                <h:outputText value="#{usario.cpf}"/>
+
+                <p:column headerText="Data de Nascimento"/>
+                <h:outputText value="#{usario.dataNascimento}"/>
+         </p:dataTable>
+
+        </p:fieldset>
+        
+    </h:form>    
+
+</ui:composition>
+
